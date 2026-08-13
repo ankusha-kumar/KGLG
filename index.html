@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KGLG Employee Handbook — Aruba Retreat 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --black: #0D0D0D;
+    --red: #B24843;
+    --darkred: #8C3330;
+    --cream: #F5F0E8;
+    --offwhite: #FAF7F2;
+    --ltgray: #E8E4DC;
+    --mdgray: #9A9490;
+    --darkgray: #4A4540;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    border-right: 3px solid var(--red);
+  }
+
+  .sidebar-logo {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .sidebar-logo .kglg {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 4px;
+    line-height: 1;
+  }
+
+  .sidebar-logo .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    color: var(--red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  .sidebar-logo .edition {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: var(--mdgray);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .sidebar-section-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--mdgray);
+    padding: 20px 24px 8px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-left: 3px solid transparent;
+    color: #888;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .nav-item:hover { background: #1a1a1a; color: var(--white); }
+
+  .nav-item.active {
+    background: #1a1a1a;
+    color: var(--white);
+    border-left-color: var(--red);
+  }
+
+  .nav-item .nav-icon { font-size: 14px; width: 18px; text-align: center; }
+  .nav-item .nav-label { flex: 1; }
+
+  .nav-item .coming-soon-badge {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #2a2a2a;
+    color: var(--mdgray);
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 16px 24px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .sidebar-footer .conf {
+    font-size: 8px;
+    color: #444;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    margin-left: 240px;
+    min-height: 100vh;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--white);
+    border-bottom: 1px solid var(--ltgray);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .topbar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .topbar-meta {
+    font-size: 11px;
+    color: var(--mdgray);
+    font-family: 'Courier Prime', monospace;
+    font-style: italic;
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .tag-red { background: var(--red); color: var(--white); }
+  .tag-outline { border: 1px solid var(--ltgray); color: var(--mdgray); }
+
+  /* ── PAGE ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .page-content { padding: 40px; max-width: 1100px; }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--ltgray);
+  }
+
+  .section-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1.1;
+  }
+
+  .section-desc {
+    font-size: 13px;
+    color: var(--darkgray);
+    margin-top: 8px;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover-page {
+    background: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-page::before {
+    content: 'KGLG';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 320px;
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: -10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .cover-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 4px 12px;
+    margin-bottom: 24px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+
+  .cover-title span { color: var(--red); }
+
+  .cover-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #888;
+    margin-bottom: 32px;
+  }
+
+  .cover-divider {
+    width: 120px;
+    height: 2px;
+    background: var(--red);
+    margin: 0 auto 28px;
+  }
+
+  .cover-meta {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .cover-meta strong { color: var(--white); }
+
+  .cover-cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-primary { background: var(--red); color: var(--white); }
+  .btn-primary:hover { background: var(--darkred); }
+  .btn-outline { background: transparent; border: 1px solid #333; color: #888; }
+  .btn-outline:hover { border-color: var(--white); color: var(--white); }
+
+  /* ── ITINERARY ── */
+  .timeline { position: relative; }
+
+  .timeline-day {
+    margin-bottom: 32px;
+    border: 1px solid var(--ltgray);
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .day-header {
+    background: var(--black);
+    color: var(--white);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .day-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--red);
+    font-weight: 400;
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  .day-date {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    color: #555;
+  }
+
+  .day-events { padding: 0; }
+
+  .event {
+    display: grid;
+    grid-template-columns: 120px 80px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--ltgray);
+    min-height: 80px;
+  }
+
+  .event:last-child { border-bottom: none; }
+
+  .event-time {
+    padding: 16px 20px;
+    border-right: 1px solid var(--ltgray);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+
+  .event-time-label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    color: var(--mdgray);
+    font-style: italic;
+  }
+
+  .event-group-tag {
+    display: inline-block;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  .tag-girls { background: #fce8e8; color: var(--red); }
+  .tag-boys { background: #e8eaf8; color: #4a5490; }
+  .tag-all { background: var(--black); color: var(--white); }
+
+  .event-accent {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-right: 1px solid var(--ltgray);
+    font-size: 22px;
+  }
+
+  .event-body {
+    padding: 16px 24px;
+  }
+
+  .event-corporate-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+
+  .event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .event-desc {
+    font-size: 12px;
+    color: var(--darkgray);
+    line-height: 1.6;
+  }
+
+  .event-detail-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    background: var(--ltgray);
+    color: var(--darkgray);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-top: 6px;
+    margin-right: 4px;
+  }
+
+  /* ── TO-DO ── */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mdgray);
+    margin-right: 4px;
+  }
+
+  .filter-btn {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border: 1px solid var(--ltgray);
+    background: var(--white);
+    color: var(--darkgray);
+    cursor: pointer;
+    transition: all 0.15s;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  .filter-btn:hover { border-color: var(--red); color: var(--red); }
+  .filter-btn.active { background: var(--red); border-color: var(--red); color: var(--white); }
+
+  .todo-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--ltgray);
+  }
+
+  .todo-table th {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 10px 16px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .todo-table td {
+    padding: 12px 16px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--ltgray);
+    vertical-align: top;
+    color: var(--darkgray);
+  }
+
+  .todo-table tr:last-child td { border-bottom: none; }
+  .todo-table tr:hover td { background: var(--offwhite); }
+
+  .todo-action { font-weight: 600; color: var(--black); font-size: 13px; }
+  .todo-detail { color: var(--mdgray); font-size: 11px; margin-top: 2px; line-height: 1.5; }
+
+  .cat-badge {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .cat-excursion { background: #e8eaf8; color: #3a4580; }
+  .cat-food { background: #fce8e8; color: var(--darkred); }
+  .cat-digital { background: #e8f4e8; color: #2a6030; }
+  .cat-booking { background: #f8f0e8; color: #805a20; }
+  .cat-swag { background: #f0e8f8; color: #5a3080; }
+  .cat-decor { background: #e8f8f8; color: #205860; }
+  .cat-meeting { background: #f8f8e8; color: #606020; }
+
+  .owner-chip {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    background: var(--offwhite);
+    border: 1px solid var(--ltgray);
+    color: var(--black);
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin: 2px 2px 0 0;
+    white-space: nowrap;
+  }
+
+  .todo-row { transition: opacity 0.15s; }
+  .todo-row.hidden { display: none; }
+
+  /* ── ORG CHART ── */
+  .org-wrapper { }
+
+  .org-csuite {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 0;
+  }
+
+  .org-connector-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .org-connector-line-v {
+    width: 2px;
+    height: 40px;
+    background: var(--red);
+  }
+
+  .org-connector-h-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .org-connector-h {
+    height: 2px;
+    background: var(--red);
+    position: absolute;
+    top: 0;
+  }
+
+  .org-departments {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  /* ── OPCO ── */
+  #opco-row {
+    margin-bottom: 0;
+  }
+
+  .opco-label-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .opco-header-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    border: 1px solid var(--red);
+    padding: 4px 14px;
+    font-family: 'Inter', sans-serif;
+    background: #fff8f8;
+  }
+
+  .opco-members-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+
+  .opco-card {
+    background: var(--black);
+    border: 1px solid var(--red);
+    padding: 16px 20px;
+    text-align: center;
+    min-width: 140px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .opco-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+  }
+
+  .opco-card-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.3px;
+  }
+
+  .opco-card-role {
+    font-size: 9px;
+    color: var(--red);
+    font-style: italic;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  .opco-card-house {
+    font-size: 9px;
+    color: #555;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  .opco-to-dept-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .org-departments-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  .avatar-opco {
+    background: var(--black);
+    border: 2px solid var(--red);
+    color: var(--red);
+  }
+
+  .org-member-opco {
+    background: #fdf8f8;
+    border-left: 3px solid var(--red) !important;
+  }
+
+  .opco-pill {
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--red);
+    background: #fce8e8;
+    padding: 1px 5px;
+    border-radius: 2px;
+    margin-top: 2px;
+    display: inline-block;
+  }
+
+  .org-dept {
+    background: var(--white);
+    border: 1px solid var(--ltgray);
+    overflow: hidden;
+  }
+
+  .org-dept-header {
+    padding: 10px 14px;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .org-dept-icon { font-size: 14px; }
+
+  .org-dept-name {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    flex: 1;
+  }
+
+  .org-dept-count {
+    font-size: 9px;
+    color: #555;
+    font-family: 'Courier Prime', monospace;
+  }
+
+  .org-member {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--ltgray);
+    transition: background 0.1s;
+  }
+
+  .org-member:last-child { border-bottom: none; }
+  .org-member:hover { background: var(--offwhite); }
+
+  .org-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    color: var(--white);
+  }
+
+  .avatar-girls { background: var(--red); }
+  .avatar-boys { background: #4a5490; }
+  .avatar-csuite { background: var(--black); border: 2px solid var(--red); }
+
+  .org-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--black);
+    flex: 1;
+  }
+
+  .org-house {
+    font-size: 9px;
+    color: var(--mdgray);
+  }
+
+  /* ── C-SUITE CARDS ── */
+  .csuite-cards {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .csuite-card {
+    background: var(--black);
+    border: 1px solid var(--red);
+    padding: 20px 28px;
+    text-align: center;
+    min-width: 160px;
+    position: relative;
+  }
+
+  .csuite-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+  }
+
+  .csuite-initials {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 auto 12px;
+  }
+
+  .csuite-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+
+  .csuite-title {
+    font-size: 9px;
+    color: var(--red);
+    font-style: italic;
+    font-family: 'Courier Prime', monospace;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .org-connect-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .org-connect-line {
+    width: 2px;
+    height: 24px;
+    background: var(--red);
+  }
+
+  .org-connect-bar {
+    width: 80%;
+    height: 2px;
+    background: var(--red);
+  }
+
+  /* ── COMING SOON ── */
+  .coming-soon-page {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+  }
+
+  .coming-soon-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+    opacity: 0.4;
+  }
+
+  .coming-soon-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .coming-soon-subtitle {
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: var(--mdgray);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+
+  .coming-soon-desc {
+    font-size: 13px;
+    color: var(--darkgray);
+    max-width: 380px;
+    line-height: 1.7;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 3px solid var(--red);
+    color: var(--red);
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 6px 16px;
+    transform: rotate(-8deg);
+    margin-top: 24px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--ltgray);
+    padding: 20px;
+    border-top: 3px solid var(--red);
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mdgray);
+    margin-top: 4px;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--ltgray); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="kglg">KGLG</div>
+    <div class="subtitle">Employee Handbook</div>
+    <div class="edition">Aruba Retreat Edition · 2026</div>
+  </div>
+
+  <div class="sidebar-section-label">Main</div>
+  <a class="nav-item active" onclick="showPage('cover', this)">
+    <span class="nav-icon">🏢</span>
+    <span class="nav-label">Welcome Briefing</span>
+  </a>
+
+  <div class="sidebar-section-label">Operations</div>
+  <a class="nav-item" onclick="showPage('itinerary', this)">
+    <span class="nav-icon">📋</span>
+    <span class="nav-label">Strategic Calendar</span>
+  </a>
+  <a class="nav-item" onclick="showPage('todo', this)">
+    <span class="nav-icon">✅</span>
+    <span class="nav-label">Action Item Registry</span>
+  </a>
+  <a class="nav-item" onclick="showPage('org', this)">
+    <span class="nav-icon">🗂️</span>
+    <span class="nav-label">Org Chart</span>
+  </a>
+
+  <div class="sidebar-section-label">Pending Approval</div>
+  <a class="nav-item" onclick="showPage('rooms', this)">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Room Assignments</span>
+    <span class="coming-soon-badge">TBD</span>
+  </a>
+  <a class="nav-item" onclick="showPage('aruba101', this)">
+    <span class="nav-icon">🌴</span>
+    <span class="nav-label">Aruba Field Guide</span>
+    <span class="coming-soon-badge">TBD</span>
+  </a>
+
+  <div class="sidebar-footer">
+    <div class="conf">Confidential · Internal Use Only</div>
+    <div class="conf" style="margin-top:2px">© KGLG 2026</div>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<main class="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div>
+      <div class="topbar-title" id="topbar-title">Welcome Briefing</div>
+      <div class="topbar-meta">KGLG Post-Merger Cultural Integration Retreat · Oct 28 – Nov 2, 2026</div>
+    </div>
+    <div class="topbar-right">
+      <span class="tag tag-red">Confidential</span>
+      <span class="tag tag-outline">v1.0</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PAGE: COVER -->
+  <!-- ═══════════════════════════════════ -->
+  <div id="page-cover" class="page active">
+    <div class="cover-page">
+      <div class="cover-inner">
+        <div class="cover-badge">Employee Handbook · Confidential · Aruba 2026</div>
+        <div class="cover-title">KGLG<br><span>Retreat</span></div>
+        <div class="cover-subtitle">Post-Merger Cultural Integration Edition</div>
+        <div class="cover-divider"></div>
+        <div class="cover-meta">
+          <strong>Kumar Global Ltd.</strong> + <strong>Kumar Leisure International</strong><br>
+          October 28 – November 2, 2026 · Aruba<br>
+          <br>
+          "Forged through merger. Bound by margaritas."
+        </div>
+        <div class="cover-cta">
+          <button class="btn btn-primary" onclick="showPage('itinerary', document.querySelector('.nav-item:nth-child(4)'))">View Strategic Calendar →</button>
+          <button class="btn btn-outline" onclick="showPage('org', document.querySelector('.nav-item:nth-child(5)'))">View Org Chart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PAGE: ITINERARY -->
+  <!-- ═══════════════════════════════════ -->
+  <div id="page-itinerary" class="page">
+    <div class="page-content">
+      <div class="section-header">
+        <div class="section-eyebrow">Section 02 · Operational Calendar</div>
+        <div class="section-title">Strategic Calendar</div>
+        <div class="section-desc">The official KGLG retreat schedule, formatted for maximum corporate plausibility. All sessions mandatory unless otherwise noted. Hangovers not a valid excuse.</div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-value">6</div>
+          <div class="stat-label">Days On-Site</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">21</div>
+          <div class="stat-label">Stakeholders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">5</div>
+          <div class="stat-label">Departments</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">∞</div>
+          <div class="stat-label">KPIs (Kegs Per Individual)</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <!-- DAY 0 -->
+        <div class="timeline-day">
+          <div class="day-header">
+            <div class="day-num">Day 00</div>
+            <div class="day-title">Executive Pre-Arrival & Stakeholder Onboarding</div>
+            <div class="day-date">WED · OCT 28</div>
+          </div>
+          <div class="day-events">
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">Evening</div>
+                <span class="event-group-tag tag-all">All Hands</span>
+              </div>
+              <div class="event-accent">🏢</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Early Deployment Initiative</div>
+                <div class="event-title">Welcome Mixer & Swag Bag Distribution</div>
+                <div class="event-desc">Innovation hub access granted from 8PM onward. Each department presents a brief intro deck. HR leads icebreakers. Swag bags distributed. Company headshot booth. Name badges issued. Informal networking strongly encouraged — and by encouraged, we mean mandatory.</div>
+                <span class="event-detail-tag">📦 Swag Distribution</span>
+                <span class="event-detail-tag">📸 Headshot Booth</span>
+                <span class="event-detail-tag">🎤 Dept Intros</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 1 -->
+        <div class="timeline-day">
+          <div class="day-header">
+            <div class="day-num">Day 01</div>
+            <div class="day-title">Departmental Deep Dives</div>
+            <div class="day-date">THU · OCT 29</div>
+          </div>
+          <div class="day-events">
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">Daytime</div>
+                <span class="event-group-tag tag-girls">KLI Division</span>
+              </div>
+              <div class="event-accent">🏖️</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Coastal Market Research Initiative</div>
+                <div class="event-title">Beach Day — Eagle Beach Field Operations</div>
+                <div class="event-desc">Vitamin D optimization at Eagle Beach. Research area around Eagle — identify optimal spread area. Theme: Sunset Warm Colors. Phoebe to conduct advance reconnaissance on nearby bars and food options.</div>
+                <span class="event-detail-tag">🌅 Sunset Warm Colors Theme</span>
+                <span class="event-detail-tag">📍 Eagle Beach</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">Daytime</div>
+                <span class="event-group-tag tag-boys">KGL Division</span>
+              </div>
+              <div class="event-accent">⛳</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Course Correction Workshop</div>
+                <div class="event-title">Golf Day — Tierra del Sol Resort & Golf</div>
+                <div class="event-desc">Leadership retreat on the links. Strategic synergies to be identified between holes 1–18. Chris to confirm booking at Tierra del Sol. Cigars provided as part of the executive wellness package.</div>
+                <span class="event-detail-tag">📍 Tierra del Sol</span>
+                <span class="event-detail-tag">🚬 Cigars Provided</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">Evening</div>
+                <span class="event-group-tag tag-girls">KLI Division</span>
+              </div>
+              <div class="event-accent">🍽️</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Q3 Client Entertainment</div>
+                <div class="event-title">Girl Dinner — Cafe Marily</div>
+                <div class="event-desc">Formal stakeholder dinner for 10. Dress nice — sunset vibe, dressy chic. Reservation to be confirmed by Ann. 8:00 PM.</div>
+                <span class="event-detail-tag">📍 Cafe Marily</span>
+                <span class="event-detail-tag">👗 Dressy Chic</span>
+                <span class="event-detail-tag">8:00 PM</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">Evening</div>
+                <span class="event-group-tag tag-boys">KGL Division</span>
+              </div>
+              <div class="event-accent">🎲</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Autonomous Team Operations</div>
+                <div class="event-title">Boy Dinner — Choose Your Own Adventure</div>
+                <div class="event-desc">Book your own dinner. Or gamble. Or bar. Or pool. Whatever your heart desires. Justin has a food guide for local ordering and dine-in recommendations. 8:00 PM.</div>
+                <span class="event-detail-tag">📞 Contact Justin for food guide</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="timeline-day">
+          <div class="day-header">
+            <div class="day-num">Day 02</div>
+            <div class="day-title">Terrain Disruption Sprint</div>
+            <div class="day-date">FRI · OCT 30</div>
+          </div>
+          <div class="day-events">
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">All Day</div>
+                <span class="event-group-tag tag-all">All Hands</span>
+              </div>
+              <div class="event-accent">🏎️</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Off-Road Innovation Initiative</div>
+                <div class="event-title">Off-Roading — Navigating Obstacles</div>
+                <div class="event-desc">~6 hours daytime. Morning start. For 20 people. Theme: Navigating Obstacles. Dress: bathing suit + athletic clothes you don't mind getting dirty. Face covering (scarf + sunglasses). Girlies: think Lara Croft × Kim Possible. Under $100pp ideally. Option: OE Aruba.</div>
+                <span class="event-detail-tag">🎽 Lara Croft × Kim Possible</span>
+                <span class="event-detail-tag">📍 OE Aruba (option)</span>
+                <span class="event-detail-tag">💰 Under $100pp</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">Evening</div>
+                <span class="event-group-tag tag-all">All Hands</span>
+              </div>
+              <div class="event-accent">👨‍🍳</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Annual Board of Directors Banquet</div>
+                <div class="event-title">Group Dinner — Private Chef at Girls House</div>
+                <div class="event-desc">7:00 PM. 20 people. Dress NICE — Island Chic. No white. Fiances give speeches. Then chaos ensues. Pool games follow.</div>
+                <span class="event-detail-tag">👗 Island Chic (no white)</span>
+                <span class="event-detail-tag">🎤 Fiances speak</span>
+                <span class="event-detail-tag">7:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="timeline-day">
+          <div class="day-header">
+            <div class="day-num">Day 03</div>
+            <div class="day-title">All-Hands Maritime Summit</div>
+            <div class="day-date">SAT · OCT 31</div>
+          </div>
+          <div class="day-events">
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">All Day</div>
+                <span class="event-group-tag tag-all">All Hands</span>
+              </div>
+              <div class="event-accent">⛵</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Blue Ocean Strategy — Literal</div>
+                <div class="event-title">Boat Day — Risky Business Casual</div>
+                <div class="event-desc">Full entity boat day. Dress code: Risky Business Casual — must wear a tie (button down cover up + tie). 10 AM–4 PM window. Includes food and beverages. Snorkeling and/or beach stop. Life vests optional. Beverages mandatory. For 20 people.</div>
+                <span class="event-detail-tag">👔 Tie required</span>
+                <span class="event-detail-tag">🤿 Snorkeling</span>
+                <span class="event-detail-tag">10AM – 4PM</span>
+              </div>
+            </div>
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">Evening</div>
+                <span class="event-group-tag tag-all">All Hands</span>
+              </div>
+              <div class="event-accent">🍕</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Autonomous Operations</div>
+                <div class="event-title">Free Time — Fend for Yourself</div>
+                <div class="event-desc">Book your own dinner, or take-out. Net net: leadership declines to operationalize dinner this evening. Act accordingly.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div class="timeline-day">
+          <div class="day-header">
+            <div class="day-num">Day 04</div>
+            <div class="day-title">Annual Performance Reviews</div>
+            <div class="day-date">SUN · NOV 1</div>
+          </div>
+          <div class="day-events">
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">All Day</div>
+                <span class="event-group-tag tag-all">All Hands</span>
+              </div>
+              <div class="event-accent">🏆</div>
+              <div class="event-body">
+                <div class="event-corporate-title">KPI Assessment — Kegs Per Individual</div>
+                <div class="event-title">KGLG Olympics & Love Island Games</div>
+                <div class="event-desc">Beer Olympics + Love Island Talent Showcase. Team colors based on department — relating to Day 1 intro decks. Orgs vs. orgs — Kusha and Kumar are clutch players rotated across each round. Scoreboard formatted as KPI dashboard. Concludes with group presentations.</div>
+                <span class="event-detail-tag">👕 Team colors by dept</span>
+                <span class="event-detail-tag">📊 KPI Dashboard scoreboard</span>
+                <span class="event-detail-tag">🎤 Group presentations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 5 -->
+        <div class="timeline-day">
+          <div class="day-header">
+            <div class="day-num">Day 05</div>
+            <div class="day-title">Strategic Offboarding</div>
+            <div class="day-date">MON · NOV 2</div>
+          </div>
+          <div class="day-events">
+            <div class="event">
+              <div class="event-time">
+                <div class="event-time-label">AM</div>
+                <span class="event-group-tag tag-all">All Hands</span>
+              </div>
+              <div class="event-accent">✈️</div>
+              <div class="event-body">
+                <div class="event-corporate-title">Talent Dispersal</div>
+                <div class="event-title">Departures — Exit Interview Optional</div>
+                <div class="event-desc">Departures begin AM. Exit interviews optional. Hangovers mandatory. Tears acceptable. KGLG thanks you for your service. Merger closes May 2027.</div>
+                <span class="event-detail-tag">😢 Tears acceptable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end timeline -->
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PAGE: TO-DO -->
+  <!-- ═══════════════════════════════════ -->
+  <div id="page-todo" class="page">
+    <div class="page-content">
+      <div class="section-header">
+        <div class="section-eyebrow">Section 03 · Action Item Registry</div>
+        <div class="section-title">Action Item Registry</div>
+        <div class="section-desc">All open action items across KGLG departments. Filter by owner to see your assigned deliverables. Completion is not optional.</div>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-label">Filter by Owner:</span>
+        <button class="filter-btn active" onclick="filterTodo('all', this)">All Employees</button>
+        <button class="filter-btn" onclick="filterTodo('Kusha', this)">Kusha</button>
+        <button class="filter-btn" onclick="filterTodo('Phoebe', this)">Phoebe</button>
+        <button class="filter-btn" onclick="filterTodo('Theresa', this)">Theresa</button>
+        <button class="filter-btn" onclick="filterTodo('Chris', this)">Chris</button>
+        <button class="filter-btn" onclick="filterTodo('Grant', this)">Grant</button>
+        <button class="filter-btn" onclick="filterTodo('Kumar', this)">Kumar</button>
+        <button class="filter-btn" onclick="filterTodo('Ann', this)">Ann</button>
+        <button class="filter-btn" onclick="filterTodo('Naya', this)">Naya</button>
+        <button class="filter-btn" onclick="filterTodo('Clayton', this)">Clayton</button>
+        <button class="filter-btn" onclick="filterTodo('Michael', this)">Michael</button>
+        <button class="filter-btn" onclick="filterTodo('Justin', this)">Justin</button>
+        <button class="filter-btn" onclick="filterTodo('Audie', this)">Audie</button>
+        <button class="filter-btn" onclick="filterTodo('Rohan', this)">Rohan</button>
+        <button class="filter-btn" onclick="filterTodo('Sruthi', this)">Sruthi</button>
+        <button class="filter-btn" onclick="filterTodo('Christina', this)">Christina</button>
+        <button class="filter-btn" onclick="filterTodo('Adam', this)">Adam</button>
+        <button class="filter-btn" onclick="filterTodo('Ini', this)">Ini</button>
+        <button class="filter-btn" onclick="filterTodo('Dinh', this)">Dinh</button>
+      </div>
+
+      <table class="todo-table" id="todo-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Action Item</th>
+            <th>Assigned To</th>
+          </tr>
+        </thead>
+        <tbody id="todo-body">
+          <!-- injected by JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PAGE: ORG CHART -->
+  <!-- ═══════════════════════════════════ -->
+  <div id="page-org" class="page">
+    <div class="page-content" style="max-width:1200px">
+      <div class="section-header">
+        <div class="section-eyebrow">Section 04 · Human Capital Management</div>
+        <div class="section-title">Org Chart</div>
+        <div class="section-desc">Official KGLG organizational structure as of Retreat 2026. All reporting lines subject to change following merger integration.</div>
+      </div>
+
+      <!-- C-Suite -->
+      <div class="csuite-cards">
+        <div class="csuite-card">
+          <div class="csuite-initials">AK</div>
+          <div class="csuite-name">Ankusha Kumar</div>
+          <div class="csuite-title">Co-CEO · Kumar Leisure Intl.<br>Chief Vibes Officer</div>
+        </div>
+        <div class="csuite-card">
+          <div class="csuite-initials">KN</div>
+          <div class="csuite-name">Kumar Neppalli</div>
+          <div class="csuite-title">Co-CEO · Kumar Global Ltd.<br>Acquired Asset</div>
+        </div>
+      </div>
+
+      <!-- Connect line: C-Suite → OpCo -->
+      <div class="org-connect-wrapper">
+        <div class="org-connect-line"></div>
+        <div class="org-connect-bar" style="width:40%"></div>
+        <div class="org-connect-line"></div>
+      </div>
+
+      <!-- OpCo + Departments injected here -->
+      <div id="org-dept-grid"></div>
+
+      <!-- Legend -->
+      <div style="display:flex; gap:20px; margin-top:28px; flex-wrap:wrap; align-items:center; padding-top:16px; border-top:1px solid var(--ltgray)">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--darkgray)">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--red)"></div> Girls House
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--darkgray)">
+          <div style="width:12px;height:12px;border-radius:50%;background:#4a5490"></div> Boys House
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--darkgray)">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--black);border:2px solid var(--red)"></div> C-Suite
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--darkgray)">
+          <div style="width:12px;height:12px;border-radius:50%;background:var(--black);border:2px solid var(--red)"></div>
+          <span style="color:var(--red);font-weight:600">OpCo</span> — Operating Committee
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PAGE: ROOMS (COMING SOON) -->
+  <!-- ═══════════════════════════════════ -->
+  <div id="page-rooms" class="page">
+    <div class="page-content">
+      <div class="section-header">
+        <div class="section-eyebrow">Section 05 · Facilities & Real Estate</div>
+        <div class="section-title">Room Assignments</div>
+      </div>
+      <div class="coming-soon-page">
+        <div class="coming-soon-icon">🏠</div>
+        <div class="coming-soon-title">Pending Internal Approval</div>
+        <div class="coming-soon-subtitle">Document Status: Under Review</div>
+        <div class="coming-soon-desc">Room assignments are currently being finalized by the Facilities & Real Estate team. This section will be updated once all stakeholders have been properly allocated. Please do not attempt to self-assign quarters. Leadership has been notified.</div>
+        <div class="stamp">Pending</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PAGE: ARUBA 101 (COMING SOON) -->
+  <!-- ═══════════════════════════════════ -->
+  <div id="page-aruba101" class="page">
+    <div class="page-content">
+      <div class="section-header">
+        <div class="section-eyebrow">Section 06 · Field Operations Briefing</div>
+        <div class="section-title">Aruba Field Guide</div>
+      </div>
+      <div class="coming-soon-page">
+        <div class="coming-soon-icon">🌴</div>
+        <div class="coming-soon-title">Intelligence Report: Incoming</div>
+        <div class="coming-soon-subtitle">Classified: Market Research In Progress</div>
+        <div class="coming-soon-desc">The KGLG Field Operations team is currently compiling on-the-ground intelligence for Aruba operations. This guide will include dining, logistics, local resources, and essential market data. Justin is on it. Check back soon.</div>
+        <div class="stamp">Compiling</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ── DATA ──
+const todos = [
+  { cat: 'Excursion', action: 'Book Boat for Oct 31', detail: 'For 20 people; 10A–4PM window incl. food + beverages. Snorkeling and/or beach stop.', owners: ['Theresa', 'Phoebe'] },
+  { cat: 'Excursion', action: 'Book Golf for Oct 29', detail: 'For the boys; determine # of people and book Tierra del Sol.', owners: ['Chris', 'Grant', 'Kumar'] },
+  { cat: 'Excursion', action: 'Book Off-Roading for Oct 30', detail: 'For 20 people; morning start. Under $100pp. OE Aruba is an option.', owners: ['Clayton', 'Michael'] },
+  { cat: 'Food Reservation', action: 'Book Private Chef for Oct 30 Evening', detail: '7:00PM for 20 people at Girls House.', owners: ['Kusha', 'Phoebe', 'Naya'] },
+  { cat: 'Food Reservation', action: 'Book Girls Dinner Oct 29', detail: '8:00PM for 10 people. See itinerary for preferred restaurant.', owners: ['Ann', 'Naya'] },
+  { cat: 'Food Reservation', action: 'Book Boys Dinner Oct 29', detail: '8:00PM for 11 people at a restaurant. Report back to Clayton.', owners: ['Justin', 'Audie'] },
+  { cat: 'Digital Material', action: 'Create Island Food Guide', detail: 'Curated list: delivery + dine-in options with reservation links.', owners: ['Justin'] },
+  { cat: 'Digital Material', action: 'Team Powerpoint', detail: 'Each department develops an intro deck for Welcome Mixer night.', owners: ['Kusha', 'Phoebe', 'Naya', 'Clayton', 'Chris'] },
+  { cat: 'Booking', action: 'Transportation for Group Activities', detail: 'All activities for 5+ people requiring transport.', owners: ['Kusha', 'Phoebe', 'Clayton', 'Chris'] },
+  { cat: 'Swag', action: 'Swag Bag Items', detail: 'See swag bag inspo list. Partner with Rohan for logo application.', owners: ['Kusha', 'Rohan'] },
+  { cat: 'Decor', action: 'Photo Ops Setup', detail: 'Digi cams, Polaroids for headshots, disposables, cam corder. Photo book planning.', owners: ['Naya', 'Phoebe'] },
+  { cat: 'Digital Material', action: 'Itinerary Outfit Inspo + Moodboard', detail: 'Powerpoint with visual details + Canva itinerary for printing.', owners: ['Kusha', 'Phoebe'] },
+  { cat: 'Meeting', action: 'OpCo Meeting', detail: 'Coordinate and schedule.', owners: ['Kusha'] },
+  { cat: 'Meeting', action: 'KGLG Pre-Departure Meeting', detail: 'Coordinate and schedule.', owners: ['Kusha'] },
+  { cat: 'Decor', action: 'Tech Stuff', detail: 'HDMI, speakers, every cord you can think of.', owners: ['Ini', 'Phoebe'] },
+  { cat: 'Decor', action: 'Corporate Banners — Boys & Girls Houses', detail: 'Something to stand in front of for photo ops. Corporate!!! Must be funny.', owners: ['Audie', 'Theresa', 'Grant'] },
+  { cat: 'Food Reservation', action: 'House Food Order', detail: 'Grocery list basics: snacks, au dourves for Night 1 mixer, eggs & breakfast items.', owners: ['Sruthi', 'Christina'] },
+  { cat: 'Swag', action: 'Always-On Playlists', detail: 'Curate different vibes for different events. Create request list.', owners: ['Adam', 'Phoebe', 'Ini'] },
+];
+
+const catClass = {
+  'Excursion': 'cat-excursion',
+  'Food Reservation': 'cat-food',
+  'Digital Material': 'cat-digital',
+  'Booking': 'cat-booking',
+  'Swag': 'cat-swag',
+  'Decor': 'cat-decor',
+  'Meeting': 'cat-meeting',
+};
+
+// Render todos
+function renderTodos() {
+  const tbody = document.getElementById('todo-body');
+  tbody.innerHTML = todos.map((t, i) => `
+    <tr class="todo-row" data-owners="${t.owners.join(',')}" data-idx="${i}">
+      <td><span class="cat-badge ${catClass[t.cat] || ''}">${t.cat}</span></td>
+      <td>
+        <div class="todo-action">${t.action}</div>
+        <div class="todo-detail">${t.detail}</div>
+      </td>
+      <td>${t.owners.map(o => `<span class="owner-chip">${o}</span>`).join('')}</td>
+    </tr>
+  `).join('');
+}
+
+function filterTodo(person, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.todo-row').forEach(row => {
+    if (person === 'all') {
+      row.classList.remove('hidden');
+    } else {
+      const owners = row.dataset.owners.split(',');
+      row.classList.toggle('hidden', !owners.some(o => o.toLowerCase().includes(person.toLowerCase())));
+    }
+  });
+}
+
+// ── ORG DATA ──
+const opco = [
+  { name: 'Clayton', dept: 'Strategy', house: 'Boys',  role: 'Strategy Lead' },
+  { name: 'Phoebe',  dept: 'Ops',      house: 'Girls', role: 'Ops Lead' },
+  { name: 'Jenna',   dept: 'HR',       house: 'Girls', role: 'HR Lead' },
+  { name: 'Dinh',    dept: 'Finance',  house: 'Boys',  role: 'Finance Lead' },
+];
+const opcoNames = opco.map(o => o.name);
+
+const guests = [
+  { name: 'Christina', dept: 'HR',       house: 'Girls' },
+  { name: 'Theresa',   dept: 'HR',       house: 'Girls' },
+  { name: 'Chris',     dept: 'HR',       house: 'Boys' },
+  { name: 'Chikki',    dept: 'HR',       house: 'Girls' },
+  { name: 'Jenna',     dept: 'HR',       house: 'Girls' },
+  { name: 'Michael',   dept: 'Finance',  house: 'Boys' },
+  { name: 'Grant',     dept: 'Finance',  house: 'Boys' },
+  { name: 'Dinh',      dept: 'Finance',  house: 'Boys' },
+  { name: 'Adam',      dept: 'Finance',  house: 'Boys' },
+  { name: 'Rohan',     dept: 'Ops',      house: 'Boys' },
+  { name: 'Phoebe',    dept: 'Ops',      house: 'Girls' },
+  { name: 'Sruthi',    dept: 'Ops',      house: 'Girls' },
+  { name: 'Justin',    dept: 'Ops',      house: 'Girls' },
+  { name: 'Deanna',    dept: 'Ops',      house: 'Girls' },
+  { name: 'Naya',      dept: 'Strategy', house: 'Girls' },
+  { name: 'Clayton',   dept: 'Strategy', house: 'Boys' },
+  { name: 'Ini',       dept: 'Strategy', house: 'Boys' },
+  { name: 'Audie',     dept: 'Strategy', house: 'Girls' },
+  { name: 'Ann',       dept: 'Strategy', house: 'Girls' },
+];
+
+const deptInfo = {
+  'Finance':  { icon: '📊', label: 'Finance' },
+  'HR':       { icon: '👥', label: 'Human Resources' },
+  'Ops':      { icon: '⚙️', label: 'Operations' },
+  'Strategy': { icon: '♟️', label: 'Strategy' },
+};
+
+function renderOrg() {
+  const grid = document.getElementById('org-dept-grid');
+
+  // OpCo row above departments
+  const opcoHTML = `
+    <div id="opco-row">
+      <div class="opco-label-header">
+        <span class="opco-header-badge">⚡ OpCo — Operating Committee</span>
+      </div>
+      <div class="opco-members-row">
+        ${opco.map(m => `
+          <div class="opco-card">
+            <div class="org-avatar avatar-opco">${m.name.charAt(0)}</div>
+            <div class="opco-card-name">${m.name}</div>
+            <div class="opco-card-role">${m.role}</div>
+            <div class="opco-card-house">${m.house === 'Girls' ? '🔴 Girls' : '🔵 Boys'}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div class="opco-to-dept-line">
+      <div class="org-connect-line" style="height:20px"></div>
+      <div class="org-connect-bar" style="width:85%"></div>
+      <div class="org-connect-line" style="height:16px"></div>
+    </div>
+    <div class="org-departments-grid">
+  `;
+
+  const deptsHTML = ['Finance', 'HR', 'Ops', 'Strategy'].map(dept => {
+    const members = guests.filter(g => g.dept === dept);
+    const info = deptInfo[dept];
+    return `
+      <div class="org-dept">
+        <div class="org-dept-header">
+          <span class="org-dept-icon">${info.icon}</span>
+          <span class="org-dept-name">${info.label}</span>
+          <span class="org-dept-count">${members.length}</span>
+        </div>
+        ${members.map(m => {
+          const isOpco = opcoNames.includes(m.name);
+          return `
+          <div class="org-member${isOpco ? ' org-member-opco' : ''}">
+            <div class="org-avatar ${isOpco ? 'avatar-opco' : m.house === 'Girls' ? 'avatar-girls' : 'avatar-boys'}">${m.name.charAt(0)}</div>
+            <div style="flex:1">
+              <div class="org-name">${m.name}</div>
+              ${isOpco ? '<div class="opco-pill">OpCo</div>' : ''}
+            </div>
+            <div class="org-house">${m.house === 'Girls' ? '🔴' : '🔵'}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    `;
+  }).join('');
+
+  grid.innerHTML = opcoHTML + deptsHTML + '</div>';
+}
+
+// ── NAVIGATION ──
+const pageTitles = {
+  cover: 'Welcome Briefing',
+  itinerary: 'Strategic Calendar',
+  todo: 'Action Item Registry',
+  org: 'Org Chart',
+  rooms: 'Room Assignments',
+  aruba101: 'Aruba Field Guide',
+};
+
+function showPage(pageId, navEl) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  if (navEl) navEl.classList.add('active');
+  document.getElementById('topbar-title').textContent = pageTitles[pageId] || pageId;
+  window.scrollTo(0, 0);
+}
+
+// ── INIT ──
+renderTodos();
+renderOrg();
+</script>
+</body>
+</html>
