@@ -1367,21 +1367,23 @@ function filterTodo(person, btn) {
 
 // ── ORG DATA ──
 const guests = [
+  { name: 'Dinh',      dept: 'Finance',  house: 'Boys' },
   { name: 'Michael',   dept: 'Finance',  house: 'Boys' },
   { name: 'Grant',     dept: 'Finance',  house: 'Boys' },
-  { name: 'Dinh',      dept: 'Finance',  house: 'Boys' },
   { name: 'Adam',      dept: 'Finance',  house: 'Boys' },
+  { name: 'Steph', dept: 'Finance', house: 'Girls', leave: 'maternity' },
+  { name: 'Jenna',     dept: 'HR',       house: 'Girls' },
   { name: 'Christina', dept: 'HR',       house: 'Girls' },
   { name: 'Theresa',   dept: 'HR',       house: 'Girls' },
   { name: 'Chris',     dept: 'HR',       house: 'Boys' },
-  { name: 'Jenna',     dept: 'HR',       house: 'Girls' },
-  { name: 'Rohan',     dept: 'Ops',      house: 'Boys' },
+  { name: 'Kerrigan', dept: 'HR', house: 'Girls', leave: 'maternity' },
   { name: 'Phoebe',    dept: 'Ops',      house: 'Girls' },
+  { name: 'Rohan',     dept: 'Ops',      house: 'Boys' },
   { name: 'Sruthi',    dept: 'Ops',      house: 'Girls' },
   { name: 'Justin',    dept: 'Ops',      house: 'Girls' },
   { name: 'Deanna',    dept: 'Ops',      house: 'Girls' },
-  { name: 'Naya',      dept: 'Strategy', house: 'Girls' },
   { name: 'Clayton',   dept: 'Strategy', house: 'Boys' },
+  { name: 'Naya',      dept: 'Strategy', house: 'Girls' },
   { name: 'Ini',       dept: 'Strategy', house: 'Boys' },
   { name: 'Audie',     dept: 'Strategy', house: 'Girls' },
   { name: 'Ann',       dept: 'Strategy', house: 'Girls' },
@@ -1411,7 +1413,7 @@ function renderOrg() {
           return `
           <div class="dept-member">
             <div class="member-avatar ${isOpco ? 'av-opco' : m.house==='Girls' ? 'av-girls' : 'av-boys'}">${m.name[0]}</div>
-            <div class="member-name">${m.name}</div>
+            <div class="member-name">${m.name}${m.leave ? ' <span style="font-size:9px;background:#fce8f0;color:#a0306a;padding:1px 6px;border-radius:8px;font-weight:600;letter-spacing:0.5px;">🤱 Mat. Leave</span>' : ''}</div>
             ${isOpco ? '<span class="opco-dot">OpCo</span>' : ''}
             <span class="house-dot">${m.house==='Girls' ? '🔴' : '🔵'}</span>
           </div>`;
